@@ -12,7 +12,7 @@ module.exports = function(app) {
         const newNote = {
             title: req.body.title,
             text: req.body.text,
-            id: data.length.toString()
+            id: (data.length + 1).toString()
         };
         notes.push(newNote);
         fs.writeFileSync(dbPath, JSON.stringify(notes, null, 2));
@@ -32,7 +32,7 @@ module.exports = function(app) {
     
     function reassign(notes) {
         notes = notes.forEach((note, index) => {
-            note["id"] = index.toString();
+            note["id"] = (index + 1).toString();
         });
     }
 }
