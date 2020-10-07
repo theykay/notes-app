@@ -109,6 +109,7 @@ const handleRenderSaveBtn = function () {
 
 // Render's the list of note titles
 const renderNoteList = (notes) => {
+  console.log("render note list is running " + notes)
   $noteList.empty();
 
   const noteListItems = [];

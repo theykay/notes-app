@@ -1,14 +1,20 @@
 const data = require("../db/db.json");
 const fs = require("fs");
 const dbPath = "./db/db.json";
-const dbContent = fs.readFileSync(dbPath);
+function dbContent() {
+    return JSON.parse(fs.readFileSync(dbPath))
+}
 
 module.exports = function(app) {
     app.get("/api/notes", (req, res) => {
-        res.json(data);
+        // console.log(data)
+        // console.log(JSON.parse(dbContent));
+        res.json(dbContent());
     });
     app.post("/api/notes", (req, res) => {
-        const notes = JSON.parse(dbContent);
+        // console.log(data);
+        const notes = dbContent();
+        // console.log(notes);
         const newNote = {
             title: req.body.title,
             text: req.body.text,
@@ -21,7 +27,7 @@ module.exports = function(app) {
     app.delete("/api/notes/:id", (req, res) => {
         // console.log('hello');
         // res.json(req.body);
-        let notes = JSON.parse(dbContent);
+        let notes = dbContent();
         notes = notes.filter((note) => {
             return note.id != req.params.id;
         })
