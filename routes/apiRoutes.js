@@ -1,10 +1,10 @@
-const data = require("../db/db.json");
+// const data = require("../db/db.json");
 const fs = require("fs");
 const { DESTRUCTION } = require("dns");
 const dbPath = "./db/db.json";
 // const dbContent = fs.readFileSync(dbPath)
 function dbContent() {
-    return JSON.parse(fs.readFileSync(dbPath))
+    return JSON.parse(fs.readFileSync(dbPath, "utf-8"))
 }
 
 module.exports = function(app) {
