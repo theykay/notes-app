@@ -10,3 +10,4 @@
 
 ## Shoutouts
 Thanks so much to [Bing](https://github.com/imbingz) for helping me understand some of the functions, especially with the app.delete
+Thanks to [Katie](https://github.com/) and [Mason](https://github.com/) for their help in debugging
